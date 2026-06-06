@@ -1,0 +1,24 @@
+CFDS Restore Old Animated Button Style Proof Report
+===================================================
+Change: keep embedded Plotly Play/Pause and event jump controls, but style them like the old CFDS dark cyan pill controls instead of default square Plotly buttons.
+
+Base file: streamlit_app_restore_animated_controls.py
+Output file: streamlit_app_restore_old_button_style.py
+Size: 229,632 bytes
+Lines: 4,883
+
+- Python syntax valid: PASS
+- Old-style helper added: PASS
+- Helper called after state jump injection: PASS
+- No forced mobile manual fallback: PASS
+- Smooth branch allowed: PASS
+- Updatemenu style uses dark cyan chip: PASS
+- Slider style uses dark rail: PASS
+- CSS rounded Plotly button style added: PASS
+- No Mission 3D: PASS
+- Score sheet retained: PASS
+
+Implementation:
+- Added _cfds_style_old_plotly_animation_controls(fig, mobile_fast).
+- Restyles layout.updatemenus and layout.sliders directly.
+- Adds CSS for rounded dark cyan SVG button rectangles and violet-blue click flash.

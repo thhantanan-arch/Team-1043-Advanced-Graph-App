@@ -1,0 +1,30 @@
+CFDS Live Graph v2 Patch Report
+
+Scope:
+- Patched Live Graph only. Import, Export, Preview, Replay, Calculator, Mascot, and Graph Engine were not rebuilt.
+
+Added:
+- Live Graph v2 / Mission Console section with nav link #live.
+- Start / Pause / Reset controls.
+- Live source selector: generated log replay and demo stream.
+- Primary graph selector: altitude, velocity/descent rate, voltage, temperature, pressure, current, GPS altitude, acceleration XYZ, gyro XYZ, angular velocity XYZ, tilt XYZ.
+- Mission status cards: State, Altitude, Battery, Packet.
+- Connection/stream health pill.
+- Event timeline based on existing CFDS event/state logic.
+- Warning stack for voltage, telemetry health, and altitude spike checks.
+- Current live session CSV download.
+- Fragment-based update path using st.fragment / st.experimental_fragment fallback.
+- Responsive CSS for desktop, iPad/tablet, iPhone portrait, and iPhone landscape.
+
+Device behavior:
+- Desktop: 4 status cards + full-width live Plotly graph.
+- iPad/tablet: status cards become 2x2 grid.
+- iPhone portrait: one primary graph, compact 2x2 status, stacked controls, large touch targets.
+- iPhone landscape: compact mission-console layout, smaller header, graph prioritized.
+
+Validation performed:
+- Python syntax compile check passed: python -m py_compile streamlit_app.py
+
+Notes:
+- True radio/serial live ingest is intentionally not claimed in this patch. The Live Console uses generated normalized mission data as a stable replay/file-watch style source.
+- This avoids touching stable export/preview features and prevents the old Live Graph from destabilizing the rest of the app.
